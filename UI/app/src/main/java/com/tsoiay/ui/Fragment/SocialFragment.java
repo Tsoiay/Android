@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import com.tsoiay.ui.R;
 
-public class NearbyFragment extends Fragment {
+public class SocialFragment extends Fragment {
 
     private Context mContext;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.nearby_fragment,container,false);
+        View view = inflater.inflate(R.layout.social_fragment,container,false);
         return view;
     }
 

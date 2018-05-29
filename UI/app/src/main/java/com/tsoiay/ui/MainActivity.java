@@ -1,22 +1,17 @@
 package com.tsoiay.ui;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import com.baidu.location.LocationClient;
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.map.MapView;
 import com.tsoiay.ui.Fragment.IndexFragment;
-import com.tsoiay.ui.Fragment.NearbyFragment;
+import com.tsoiay.ui.Fragment.SocialFragment;
 import com.tsoiay.ui.Fragment.TravelFragment;
 import com.tsoiay.ui.Fragment.UserFragment;
 
@@ -24,21 +19,19 @@ public class MainActivity extends AppCompatActivity {
 
     private android.support.v4.app.FragmentManager manager;
     private ImageView icon_index;
-    private ImageView icon_nearby;
+    private ImageView icon_social;
     private ImageView icon_travel;
     private ImageView icon_user;
+    private ImageView icon_post;
 
     private Fragment indexFragment;
-    private Fragment nearbyFragment;
+    private Fragment socialFragment;
     private Fragment userFragment;
     private Fragment tavelFragment;
 
+    PublishDialog pDialog;
+
     private Fragment currentFragment = new Fragment();
-
-
-
-//    public LocationClient mLocationClient = null;
-//    private MyLocationListener myListener = new MyLocationListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,31 +41,60 @@ public class MainActivity extends AppCompatActivity {
         OnFocusChangeListenerImpl listener = new OnFocusChangeListenerImpl();
 
         icon_index.setOnFocusChangeListener(listener);
-        icon_nearby.setOnFocusChangeListener(listener);
+        icon_social.setOnFocusChangeListener(listener);
         icon_travel.setOnFocusChangeListener(listener);
         icon_user.setOnFocusChangeListener(listener);
+        icon_post.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(pDialog == null){
+                    pDialog = new PublishDialog(MainActivity.this);
+                    pDialog.setBtn_new_thingsclicklistener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this,New_ThingsActivity.class);
+                            startActivity(intent);
+                            pDialog.outputDialog();
+                        }
+                    });
+                    pDialog.setBtn_run_errandsclicklistener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this,Run_ErrandsActivity.class);
+                            startActivity(intent);
+                            pDialog.outputDialog();
+                        }
+                    });
+                    pDialog.setBtn_nearbyclicklistener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this,NearbyActivity.class);
+                            startActivity(intent);
+                            pDialog.outputDialog();
+                        }
+                    });
+                }
+                pDialog.show();
+                return false;
+            }
+        });
 
         indexFragment = new IndexFragment();
-        nearbyFragment = new NearbyFragment();
+        socialFragment = new SocialFragment();
         userFragment = new UserFragment();
         tavelFragment = new TravelFragment();
 
         // 在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(getApplicationContext());
 
-//        //BDAbstractLocationListener为7.2版本新增的Abstract类型的监听接口
-//        //原有BDLocationListener接口暂时同步保留。具体介绍请参考后文中的说明
-//        mLocationClient = new LocationClient(getApplicationContext());
-//        //声明LocationClient类
-//        mLocationClient.registerLocationListener(myListener);
-//        //注册监听函数
     }
 
     private void getViews(){
         icon_index = findViewById(R.id.index_ico);
-        icon_nearby = findViewById(R.id.nearby_ico);
+        icon_social = findViewById(R.id.social_ico);
         icon_travel = findViewById(R.id.travel_ico);
         icon_user = findViewById(R.id.user_ico);
+        icon_post = findViewById(R.id.post_ico);
     }
 
     private void changeFragment(android.support.v4.app.Fragment fragment){
@@ -107,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.index_ico:
                     changeFragment(indexFragment);
                     break;
-                case R.id.nearby_ico:
-                    changeFragment(nearbyFragment);
+                case R.id.social_ico:
+                    changeFragment(socialFragment);
                     break;
                 case R.id.travel_ico:
                     changeFragment(tavelFragment);
@@ -120,5 +142,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//    public class OnClickListenerImpl implements View.OnClickListener{
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()){
+//                case R.id.index_ico:
+//                    changeFragment(indexFragment);
+//                    break;
+//                case R.id.social_ico:
+//                    changeFragment(socialFragment);
+//                    break;
+//                case R.id.travel_ico:
+//                    changeFragment(tavelFragment);
+//                    break;
+//                case R.id.user_ico:
+//                    changeFragment(userFragment);
+//                    break;
+//            }
+//        }
+//    }
 
 }

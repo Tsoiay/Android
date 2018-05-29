@@ -12,14 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/tab_menu"
+        android:background="#999999" />
+
     <LinearLayout
         android:id="@+id/tab_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#FFFFFF	"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
+        android:background="#FAFAFA"
         android:orientation="horizontal">
 
         <ImageView
@@ -33,14 +39,14 @@
             android:src="@drawable/tab_index"/>
 
         <ImageView
-            android:id="@+id/nearby_ico"
+            android:id="@+id/social_ico"
             android:layout_width="100px"
             android:layout_height="125px"
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/tab_nearby"/>
+            android:src="@drawable/tab_social"/>
 
         <ImageView
             android:id="@+id/post_ico"
@@ -50,7 +56,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/post"/>
+            android:src="@drawable/mainactivity_publish_publish"/>
 
         <ImageView
             android:id="@+id/travel_ico"

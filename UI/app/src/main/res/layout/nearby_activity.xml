@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <TextView
+<TextView
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="附近"/>
+        android:text="找周边activity"/>
+
 </LinearLayout>

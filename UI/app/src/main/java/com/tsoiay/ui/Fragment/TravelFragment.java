@@ -46,8 +46,6 @@ public class TravelFragment extends Fragment {
     public void onStop() {
         super.onStop();
         mBaiduMap.setMyLocationEnabled(false);
-        mlocationClient.stop();
-        myOrientationListener.stop();
     }
 
     @Override
