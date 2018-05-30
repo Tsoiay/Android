@@ -14,6 +14,9 @@ import com.tsoiay.ui.Fragment.IndexFragment;
 import com.tsoiay.ui.Fragment.SocialFragment;
 import com.tsoiay.ui.Fragment.TravelFragment;
 import com.tsoiay.ui.Fragment.UserFragment;
+import com.tsoiay.ui.Layout.NearbyActivity;
+import com.tsoiay.ui.Layout.New_ThingsActivity;
+import com.tsoiay.ui.Layout.Run_ErrandsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main);
         getViews();
+
+        InitTitleBar();
+
         OnFocusChangeListenerImpl listener = new OnFocusChangeListenerImpl();
 
         icon_index.setOnFocusChangeListener(listener);
@@ -86,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
 
         // 在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(getApplicationContext());
+
+        /*
+         * 代
+         * 码
+         * 区
+         * */
 
     }
 
@@ -142,24 +154,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public class OnClickListenerImpl implements View.OnClickListener{
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()){
-//                case R.id.index_ico:
-//                    changeFragment(indexFragment);
-//                    break;
-//                case R.id.social_ico:
-//                    changeFragment(socialFragment);
-//                    break;
-//                case R.id.travel_ico:
-//                    changeFragment(tavelFragment);
-//                    break;
-//                case R.id.user_ico:
-//                    changeFragment(userFragment);
-//                    break;
-//            }
-//        }
-//    }
+    private void InitTitleBar(){
+        android.support.v7.app.ActionBar actionBar=getSupportActionBar();
+        if (actionBar != null){
+            actionBar.hide();
+        }
+    }
 
 }

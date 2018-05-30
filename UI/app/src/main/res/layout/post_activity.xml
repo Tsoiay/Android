@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/titlebar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/themecolor">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:clickable="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:background="#ffffff"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:clickable="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/post"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/titlebar"
+        android:hint="这一刻的想法..."
+        android:gravity="start"/>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/addimg"-->
+        <!--android:layout_below="@+id/edit_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_marginLeft="20dp">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="45dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:src="@drawable/addimg"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="添加照片"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="10dp"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<view-->
+        <!--android:layout_below="@+id/addimg"-->
+        <!--android:layout_width="353dp"-->
+        <!--android:layout_height="1.2dp"-->
+        <!--android:layout_centerHorizontal="true"/>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/addlocate"-->
+        <!--android:layout_below="@+id/addimg"-->
+        <!--android:layout_marginTop="7dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_marginLeft="20dp">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="45dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:src="@drawable/addlocate"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="所在位置"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="10dp"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<view-->
+        <!--android:layout_below="@+id/addlocate"-->
+        <!--android:layout_width="353dp"-->
+        <!--android:layout_height="1.2dp"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:layout_centerHorizontal="true"/>-->
+</RelativeLayout>

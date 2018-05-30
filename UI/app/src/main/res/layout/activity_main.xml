@@ -23,10 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        android:layout_alignParentStart="true"
         android:background="#FAFAFA"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp">
 
         <ImageView
             android:id="@+id/index_ico"
@@ -36,7 +37,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/tab_index"/>
+            android:src="@drawable/tab_index" />
 
         <ImageView
             android:id="@+id/social_ico"
@@ -46,7 +47,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/tab_social"/>
+            android:src="@drawable/tab_social" />
 
         <ImageView
             android:id="@+id/post_ico"
@@ -56,7 +57,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/mainactivity_publish_publish"/>
+            android:src="@drawable/mainactivity_publish_publish" />
 
         <ImageView
             android:id="@+id/travel_ico"
@@ -66,7 +67,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/tab_travel"/>
+            android:src="@drawable/tab_travel" />
 
         <ImageView
             android:id="@+id/user_ico"
@@ -76,7 +77,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:src="@drawable/tab_user"/>
+            android:src="@drawable/tab_user" />
     </LinearLayout>
 
 </RelativeLayout>
